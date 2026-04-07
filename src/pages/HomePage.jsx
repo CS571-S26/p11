@@ -1,20 +1,32 @@
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Badge } from "react-bootstrap";
 import PlayerControls from "../components/PlayerControls";
 
 function HomePage({ currentSong }) {
   return (
-    <Container className="py-4">
-      <h1 className="page-title">Welcome to Mini Music Player</h1>
-      <Card className="shadow-sm p-4 home-card">
-        <div className="home-layout">
-          <img
-            src={currentSong.cover}
-            alt={currentSong.title}
-            className="cover-image"
-          />
-          <div>
-            <h2>Now Playing</h2>
-            <p className="song-title">{currentSong.title}</p>
+    <Container className="py-5">
+      <div className="hero-header">
+        <div>
+          <h1 className="page-title">Mini Music Player</h1>
+          <p className="page-subtitle">
+            A simple and interactive web music player for browsing, playing, and
+            saving your favorite songs.
+          </p>
+        </div>
+      </div>
+      <Card className="player-card shadow-lg border-0">
+        <div className="player-card-content">
+          <div className="cover-section">
+            <img
+              src={currentSong.cover}
+              alt={currentSong.title}
+              className="cover-image"
+            />
+          </div>
+          <div className="info-section">
+            <Badge bg="dark" className="playing-badge">
+              Now Playing
+            </Badge>
+            <h2 className="song-title">{currentSong.title}</h2>
             <p className="song-artist">{currentSong.artist}</p>
             <PlayerControls song={currentSong} />
           </div>

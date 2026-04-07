@@ -5,6 +5,7 @@ function ThemeToggle({ darkMode, setDarkMode }) {
     <Button
       variant={darkMode ? "light" : "outline-light"}
       onClick={() => setDarkMode(!darkMode)}
+      className="rounded-pill px-3 fw-semibold"
     >
       {darkMode ? "Light Mode" : "Dark Mode"}
     </Button>

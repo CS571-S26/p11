@@ -13,8 +13,11 @@ function LibraryPage({ songs, setCurrentSong, favorites, toggleFavorite }) {
     );
   });
   return (
-    <Container className="py-4">
+    <Container className="py-5">
       <h1 className="page-title">Music Library</h1>
+      <p className="page-subtitle mb-4">
+        Browse songs, search by title or artist, and choose what to play next.
+      </p>
       <SearchBar search={search} setSearch={setSearch} />
       <SongList
         songs={filteredSongs}
