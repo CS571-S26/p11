@@ -1,7 +1,19 @@
 import { Container, Card, Badge } from "react-bootstrap";
 import PlayerControls from "../components/PlayerControls";
+import RecentlyPlayed from "../components/RecentlyPlayed";
 
-function HomePage({ currentSong }) {
+function HomePage({
+  currentSong,
+  songs,
+  setCurrentSong,
+  recentlyPlayed,
+  playNextSong,
+  playPreviousSong,
+  repeatMode,
+  setRepeatMode,
+  shuffleMode,
+  setShuffleMode,
+}) {
   return (
     <Container className="py-5">
       <div className="hero-header">
@@ -13,6 +25,7 @@ function HomePage({ currentSong }) {
           </p>
         </div>
       </div>
+
       <Card className="player-card shadow-lg border-0">
         <div className="player-card-content">
           <div className="cover-section">
@@ -22,16 +35,29 @@ function HomePage({ currentSong }) {
               className="cover-image"
             />
           </div>
+
           <div className="info-section">
             <Badge bg="dark" className="playing-badge">
               Now Playing
             </Badge>
             <h2 className="song-title">{currentSong.title}</h2>
             <p className="song-artist">{currentSong.artist}</p>
-            <PlayerControls song={currentSong} />
+
+            <PlayerControls
+              song={currentSong}
+              songs={songs}
+              playNextSong={playNextSong}
+              playPreviousSong={playPreviousSong}
+              repeatMode={repeatMode}
+              setRepeatMode={setRepeatMode}
+              shuffleMode={shuffleMode}
+              setShuffleMode={setShuffleMode}
+            />
           </div>
         </div>
       </Card>
+
+      <RecentlyPlayed songs={recentlyPlayed} setCurrentSong={setCurrentSong} />
     </Container>
   );
 }

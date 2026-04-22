@@ -1,7 +1,13 @@
 import { Row, Col } from "react-bootstrap";
 import SongCard from "./SongCard";
 
-function SongList({ songs, setCurrentSong, favorites, toggleFavorite }) {
+function SongList({
+  songs,
+  setCurrentSong,
+  favorites,
+  toggleFavorite,
+  currentSong,
+}) {
   return (
     <Row>
       {songs.map((song) => (
@@ -11,6 +17,7 @@ function SongList({ songs, setCurrentSong, favorites, toggleFavorite }) {
             onPlay={() => setCurrentSong(song)}
             isFavorite={favorites.some((fav) => fav.id === song.id)}
             toggleFavorite={() => toggleFavorite(song)}
+            isCurrent={currentSong && currentSong.id === song.id}
           />
         </Col>
       ))}
