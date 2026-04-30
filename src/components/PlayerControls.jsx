@@ -136,13 +136,15 @@ function PlayerControls({
       />
 
       <div className="volume-box">
-        <label>Volume</label>
+        <label htmlFor="volume-control">Volume</label>
         <Form.Range
+          id="volume-control"
           min="0"
           max="1"
           step="0.01"
           defaultValue="0.5"
           onChange={handleVolumeChange}
+          aria-label="Volume control"
         />
       </div>
     </div>

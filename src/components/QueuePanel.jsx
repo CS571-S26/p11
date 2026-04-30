@@ -25,8 +25,11 @@ function QueuePanel({ songs, currentSong, setCurrentSong }) {
           {upcomingSongs.map((song) => (
             <ListGroup.Item
               key={song.id}
-              className="queue-item"
+              action
+              as="button"
+              className="queue-item text-start"
               onClick={() => setCurrentSong(song)}
+              aria-label={`Play ${song.title} next`}
             >
               <div>
                 <strong>{song.title}</strong>
