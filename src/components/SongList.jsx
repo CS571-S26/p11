@@ -7,6 +7,7 @@ function SongList({
   favorites,
   toggleFavorite,
   currentSong,
+  onShowDetails,
 }) {
   return (
     <Row>
@@ -18,6 +19,7 @@ function SongList({
             isFavorite={favorites.some((fav) => fav.id === song.id)}
             toggleFavorite={() => toggleFavorite(song)}
             isCurrent={currentSong && currentSong.id === song.id}
+            onShowDetails={onShowDetails}
           />
         </Col>
       ))}
